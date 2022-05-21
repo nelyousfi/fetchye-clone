@@ -1,32 +1,28 @@
-import React from 'react'
-import { useFetchye } from 'fetchye'
-
-const Content = () => {
-    const { isLoading, data } = useFetchye(
-        'https://jsonplaceholder.typicode.com/posts/1'
-    )
-
-    return isLoading ? (
-        <p>Loading...</p>
-    ) : (
-        <div>
-            <h4>{data?.body.title}</h4>
-            <p>{data?.body.body}</p>
-        </div>
-    )
-}
-
-const Page = ({ title }) => {
-    return (
-        <>
-            <h1>{title}</h1>
-            <Content />
-        </>
-    )
-}
+import { Link, Route, Routes } from 'react-router-dom'
+import Blog from './routes/blog'
+import Contact from './routes/contact'
+import Home from './routes/home'
 
 const App = () => {
-    return <Page title={'Main Page'} />
+    return (
+        <>
+            <div>
+                <nav>
+                    <Link to={'/'}>Home</Link>
+                    {' | '}
+                    <Link to={'/contact'}>Contact</Link>
+                    {' | '}
+                    <Link to={'/blog'}>Blog</Link>
+                </nav>
+            </div>
+
+            <Routes>
+                <Route path={'/'} element={<Home />} />
+                <Route path={'/blog'} element={<Blog />} />
+                <Route path={'/contact'} element={<Contact />} />
+            </Routes>
+        </>
+    )
 }
 
 export default App
