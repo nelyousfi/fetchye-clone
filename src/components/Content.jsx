@@ -1,6 +1,6 @@
 import { useFetchye } from 'fetchye'
 
-const Content = () => {
+export const Content = () => {
     const { isLoading, data } = useFetchye(
         'https://jsonplaceholder.typicode.com/posts/1'
     )
@@ -12,14 +12,5 @@ const Content = () => {
             <h4>{data?.body.title}</h4>
             <p>{data?.body.body}</p>
         </div>
-    )
-}
-
-export const Page = ({ title }) => {
-    return (
-        <>
-            <h1>{title}</h1>
-            <Content />
-        </>
     )
 }
