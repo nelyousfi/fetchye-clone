@@ -1,4 +1,4 @@
-import { useFetchye } from 'fetchye'
+import { useFetchye } from '../implementation/useFetchye'
 
 export const Content = () => {
     const { isLoading, data } = useFetchye(

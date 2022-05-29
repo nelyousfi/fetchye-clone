@@ -1,6 +1,6 @@
 import { Header } from '../components/Header'
-import { useFetchye } from 'fetchye'
 import fetcher from '../utils/fetcher'
+import { useFetchye } from '../implementation/useFetchye'
 
 const SurpriseMe = () => {
     const { isLoading, data, run } = useFetchye(
